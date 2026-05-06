@@ -29,7 +29,6 @@ header {
     align-items: center;
     position: sticky;
     top: 0;
-    z-index: 1000;
 }
 
 header h1 {
@@ -99,7 +98,7 @@ nav a:hover {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-/* ================= CAROUSEL FIXED ================= */
+/* ================= CAROUSEL ================= */
 
 .carousel-container {
     position: relative;
@@ -123,23 +122,29 @@ nav a:hover {
     display: block;
 }
 
-/* BUTTONS */
+/* 🔥 BUTTON FIXED */
 .carousel-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.6);
     color: white;
     border: none;
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 20px;
+    z-index: 9999;
 }
 
-.prev-btn { left: 10px; }
-.next-btn { right: 10px; }
+.prev-btn {
+    left: 15px;
+}
+
+.next-btn {
+    right: 15px;
+}
 
 /* DOTS */
 .carousel-dots {
@@ -191,7 +196,7 @@ footer {
 <!-- HERO -->
 <section id="home" class="hero">
     <h2>Welcome to My Website</h2>
-    <p>Fully working modern website with image slider</p>
+    <p>Fully working modern website with fixed carousel</p>
     <a href="#about" class="btn">Get Started</a>
 </section>
 
