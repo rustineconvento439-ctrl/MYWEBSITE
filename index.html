@@ -29,6 +29,7 @@ header {
     align-items: center;
     position: sticky;
     top: 0;
+    z-index: 1000;
 }
 
 header h1 {
@@ -98,7 +99,7 @@ nav a:hover {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-/* ================= CAROUSEL ================= */
+/* ================= CAROUSEL FIXED ================= */
 
 .carousel-container {
     position: relative;
@@ -111,14 +112,15 @@ nav a:hover {
 
 .carousel-slides {
     display: flex;
+    width: 100%;
     transition: transform 0.5s ease-in-out;
 }
 
 .carousel-slides img {
-    width: 100%;
-    flex: 0 0 100%;
+    min-width: 100%;
     height: 400px;
     object-fit: cover;
+    display: block;
 }
 
 /* BUTTONS */
@@ -189,7 +191,7 @@ footer {
 <!-- HERO -->
 <section id="home" class="hero">
     <h2>Welcome to My Website</h2>
-    <p>Modern HTML + CSS + JavaScript Website</p>
+    <p>Fully working modern website with image slider</p>
     <a href="#about" class="btn">Get Started</a>
 </section>
 
@@ -200,7 +202,7 @@ footer {
     <div class="cards">
         <div class="card">
             <h3>Fast</h3>
-            <p>Lightweight website design.</p>
+            <p>Simple and smooth design.</p>
         </div>
 
         <div class="card">
@@ -210,7 +212,7 @@ footer {
 
         <div class="card">
             <h3>Modern</h3>
-            <p>Clean UI design.</p>
+            <p>Clean UI layout.</p>
         </div>
     </div>
 </section>
