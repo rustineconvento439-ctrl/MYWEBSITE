@@ -1,308 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website ng mga Kupal</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Modern Website</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-            scroll-behavior: smooth;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    scroll-behavior: smooth;
+}
 
-        body {
-            background-color: #fbf9f3; /* Warm off-white to complement the palette */
-            color: #2d3748;
-        }
+body {
+    background: #fbf9f3;
+    color: #2d3748;
+}
 
-        /* HEADER - Deep Teal */
-        header {
-            background: #005f60; /* Dark Teal */
-            color: white;
-            padding: 15px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
+/* HEADER */
+header {
+    background: #005f60;
+    color: white;
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+}
 
-        /* Logo using Coral and Mustard Yellow */
-        header h1 {
-            color: #FF7F50; /* Coral */
-        }
+header h1 {
+    color: #FF7F50;
+}
 
-        header h1 span {
-            color: #FFDB58; /* Mustard Yellow */
-        }
+header h1 span {
+    color: #FFDB58;
+}
 
-        nav a {
-            color: white;
-            margin-left: 20px;
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.3s ease;
-        }
+nav a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+}
 
-        /* Hover turns Coral */
-        nav a:hover {
-            color: #FF7F50; 
-        }
+nav a:hover {
+    color: #FF7F50;
+}
 
-        /* HERO SECTION - Deep Teal to Bright Teal Gradient */
-        .hero {
-            height: 90vh;
-            background: linear-gradient(135deg, #005f60, #00a896);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            text-align: center;
-            color: white;
-            padding: 20px;
-        }
+/* HERO */
+.hero {
+    height: 90vh;
+    background: linear-gradient(135deg, #005f60, #00a896);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    color: white;
+}
 
-        .hero h2 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
+.hero h2 {
+    font-size: 3rem;
+}
 
-        /* CORAL BUTTONS */
-        .btn {
-            padding: 12px 25px;
-            background: #FF7F50; /* Coral */
-            color: white;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 15px;
-            display: inline-block;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 127, 80, 0.4);
-        }
+.btn {
+    margin-top: 15px;
+    padding: 12px 25px;
+    background: #FF7F50;
+    color: white;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+}
 
-        .btn:hover {
-            background: #e0663b; /* Darker Coral */
-            transform: translateY(-2px);
-        }
+/* SECTIONS */
+.section {
+    padding: 80px 50px;
+    text-align: center;
+}
 
-        /* Hero Button - Mustard Yellow turning Coral on hover */
-        .hero .btn {
-            background: #FFDB58; /* Mustard Yellow */
-            color: #005f60; /* Dark Teal text */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-        }
+/* CARDS */
+.cards {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
 
-        .hero .btn:hover {
-            background: #FF7F50; /* Coral hover */
-            color: white;
-        }
+.card {
+    background: white;
+    padding: 25px;
+    width: 250px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
 
-        .section {
-            padding: 80px 50px;
-            text-align: center;
-        }
+/* ================= CAROUSEL ================= */
 
-        /* ABOUT SECTION CARDS */
-        .cards {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            margin-top: 40px;
-            flex-wrap: wrap;
-        }
+.carousel-container {
+    position: relative;
+    max-width: 600px;
+    margin: 40px auto;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 4px solid #FFDB58;
+}
 
-        .card {
-            background: white;
-            padding: 30px 20px;
-            width: 280px;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            border-top: 5px solid #FFDB58; /* Mustard Yellow top border */
-            transition: transform 0.3s ease;
-        }
+.carousel-slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
 
-        .card:hover {
-            transform: translateY(-5px);
-        }
+.carousel-slides img {
+    width: 100%;
+    flex: 0 0 100%;
+    height: 400px;
+    object-fit: cover;
+}
 
-        /* Alternate card has a Coral border */
-        .card.alt-card {
-            border-top: 5px solid #FF7F50; /* Coral border */
-        }
+/* BUTTONS */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+}
 
-        .card h3 {
-            margin-bottom: 15px;
-            color: #005f60; /* Teal card headers */
-        }
+.prev-btn { left: 10px; }
+.next-btn { right: 10px; }
 
-        /* ================= CAROUSEL SYSTEM ================= */
-        .carousel-container {
-            position: relative;
-            max-width: 600px;
-            margin: 40px auto 0 auto;
-            overflow: hidden;
-            border-radius: 12px;
-            border: 5px solid #FFDB58; /* Mustard Yellow Frame */
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-            transition: border-color 0.3s ease;
-        }
+/* DOTS */
+.carousel-dots {
+    text-align: center;
+    margin-top: 10px;
+}
 
-        .carousel-container:hover {
-            border-color: #FF7F50; /* Changes to Coral frame on hover */
-        }
+.dot {
+    height: 10px;
+    width: 10px;
+    background: #ccc;
+    display: inline-block;
+    border-radius: 50%;
+    margin: 5px;
+    cursor: pointer;
+}
 
-        /* Slides wrapper */
-        .carousel-slides {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-            width: 100%;
-        }
+.dot.active {
+    background: #FF7F50;
+}
 
-        /* Individual slide */
-        .carousel-slides img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            flex-shrink: 0;
-        }
+/* CONTACT */
+#contact {
+    background: #e6f2f2;
+}
 
-        /* Navigation Buttons */
-        .carousel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 95, 96, 0.8); /* Semi-transparent Teal */
-            color: #FFDB58; /* Mustard Yellow icon/arrow */
-            border: none;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            font-size: 20px;
-            font-weight: bold;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            z-index: 10;
-        }
-
-        .carousel-btn:hover {
-            background: #FF7F50; /* Coral background on hover */
-            color: white;
-            transform: translateY(-50%) scale(1.1);
-        }
-
-        .prev-btn {
-            left: 15px;
-        }
-
-        .next-btn {
-            right: 15px;
-        }
-
-        /* Indicators / Dots at the bottom */
-        .carousel-dots {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            margin-top: 15px;
-        }
-
-        .dot {
-            width: 12px;
-            height: 12px;
-            background-color: #ccc;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .dot.active {
-            background-color: #FF7F50; /* Active dot is Coral */
-        }
-        /* =================================================== */
-
-        /* CONTACT SECTION - Soft Teal/Sand Background */
-        #contact {
-            background-color: #e6f2f2; 
-        }
-
-        #contact h2 {
-            color: #005f60;
-        }
-
-        /* FOOTER - Deep Teal */
-        footer {
-            background: #005f60;
-            color: white;
-            text-align: center;
-            padding: 25px;
-            font-size: 14px;
-        }
-    </style>
+/* FOOTER */
+footer {
+    background: #005f60;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-    <h1>My<span>Site</span></h1> 
+    <h1>My<span>Site</span></h1>
     <nav>
         <a href="#home">Home</a>
         <a href="#about">About</a>
-        <a href="#gallery">Pictures</a> 
+        <a href="#gallery">Pictures</a>
         <a href="#contact">Contact</a>
     </nav>
 </header>
 
+<!-- HERO -->
 <section id="home" class="hero">
-    <h2>Welcome mga Tarantado</h2>
-    <p>Mga siraulo lng ang pwedeng gumamit nito.</p>
-    <a href="#about" class="btn">Learn More</a> 
+    <h2>Welcome to My Website</h2>
+    <p>Modern HTML + CSS + JavaScript Website</p>
+    <a href="#about" class="btn">Get Started</a>
 </section>
 
+<!-- ABOUT -->
 <section id="about" class="section">
-    <h2 style="color: #005f60;">About Us</h2>
-    <p>Kami ay mga tarantado</p>
+    <h2>About Us</h2>
 
     <div class="cards">
         <div class="card">
             <h3>Fast</h3>
-            <p>Kasi naka chongke.</p>
-        </div>
-
-        <div class="card alt-card"> 
-            <h3>Responsive</h3>
-            <p>Pwede sa cp at website to mga gar.</p>
+            <p>Lightweight website design.</p>
         </div>
 
         <div class="card">
-            <h3>Simple</h3>
-            <p>Simple lng para smooth.</p>
+            <h3>Responsive</h3>
+            <p>Works on phone and PC.</p>
+        </div>
+
+        <div class="card">
+            <h3>Modern</h3>
+            <p>Clean UI design.</p>
         </div>
     </div>
 </section>
 
+<!-- GALLERY -->
 <section id="gallery" class="section">
-    <h2 style="color: #005f60;">Pictures</h2>
+    <h2>Pictures</h2>
 
     <div class="carousel-container">
         <button class="carousel-btn prev-btn" onclick="moveSlide(-1)">&#10094;</button>
         <button class="carousel-btn next-btn" onclick="moveSlide(1)">&#10095;</button>
 
         <div class="carousel-slides" id="carouselSlides">
-            <img src="kups.jpeg" alt="Kups 1">
-            <img src="kups2.jpeg" alt="Kups 2">
-            <img src="kups.jpeg" alt="Kups 3">
-            <img src="kups.jpeg" alt="Kups 4">
+            <img src="kups.jpeg">
+            <img src="kups2.jpeg">
+            <img src="kups.jpeg">
         </div>
     </div>
 
@@ -310,67 +234,56 @@
         <span class="dot active" onclick="currentSlide(0)"></span>
         <span class="dot" onclick="currentSlide(1)"></span>
         <span class="dot" onclick="currentSlide(2)"></span>
-        <span class="dot" onclick="currentSlide(3)"></span>
     </div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact" class="section">
     <h2>Contact</h2>
-    <p style="margin-bottom: 5px;"><strong>Email:</strong> example@email.com</p>
-    <p style="margin-bottom: 15px;"><strong>Phone:</strong> 09123456789</p>
+    <p>Email: example@email.com</p>
+    <p>Phone: 09123456789</p>
 
-    <a href="#home" class="btn">Back to Top</a> 
+    <a href="#home" class="btn">Back to Top</a>
 </section>
 
 <footer>
     <p>© 2026 My Website</p>
 </footer>
 
+<!-- JAVASCRIPT -->
 <script>
-    let currentIndex = 0;
-    const slides = document.getElementById('carouselSlides');
-    const totalSlides = document.querySelectorAll('#carouselSlides img').length;
-    const dots = document.querySelectorAll('.dot');
+let currentIndex = 0;
+const slides = document.getElementById("carouselSlides");
+const images = document.querySelectorAll("#carouselSlides img");
+const dots = document.querySelectorAll(".dot");
 
-    // Function to change slide
-    function updateCarousel() {
-        // Shift the slide line container horizontally by slide width percentages
-        slides.style.transform = translateX(-${currentIndex * 100}%);
-        
-        // Update dots visual status
-        dots.forEach((dot, index) => {
-            if (index === currentIndex) {
-                dot.classList.add('active');
-            } else {
-                dot.classList.remove('active');
-            }
-        });
+function updateCarousel() {
+    slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+    dots.forEach((dot, index) => {
+        dot.classList.toggle("active", index === currentIndex);
+    });
+}
+
+function moveSlide(direction) {
+    currentIndex += direction;
+
+    if (currentIndex >= images.length) {
+        currentIndex = 0;
     }
 
-    // Prev / Next button click events
-    function moveSlide(direction) {
-        currentIndex += direction;
-        
-        // Loop back if bounds are exceeded
-        if (currentIndex >= totalSlides) {
-             dot.classList.toggle('active', index === currentIndex);
-        });
+    if (currentIndex < 0) {
+        currentIndex = images.length - 1;
     }
 
-    function moveSlide(direction) {
-        currentIndex += direction;
+    updateCarousel();
+}
 
-        if (currentIndex >= totalSlides) {
-            currentIndex = 0;
-        } else if (currentIndex < 0) {
-            currentIndex = totalSlides - 1;
-        }
-
-        updateCarousel();
-    }
-
-    function currentSlide(index) {
-        currentIndex = index;
-        updateCarousel();
-    }
+function currentSlide(index) {
+    currentIndex = index;
+    updateCarousel();
+}
 </script>
+
+</body>
+</html>
