@@ -353,3 +353,24 @@
         
         // Loop back if bounds are exceeded
         if (currentIndex >= totalSlides) {
+             dot.classList.toggle('active', index === currentIndex);
+        });
+    }
+
+    function moveSlide(direction) {
+        currentIndex += direction;
+
+        if (currentIndex >= totalSlides) {
+            currentIndex = 0;
+        } else if (currentIndex < 0) {
+            currentIndex = totalSlides - 1;
+        }
+
+        updateCarousel();
+    }
+
+    function currentSlide(index) {
+        currentIndex = index;
+        updateCarousel();
+    }
+</script>
